@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-=======
-
->>>>>>> master
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,11 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-<<<<<<< HEAD
-  <title>ZenBlog Bootstrap Template - Category</title>
-=======
-  <title>What's Happening </title>
->>>>>>> master
+  <title>What's Happening</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -52,49 +44,13 @@
   <header id="header" class="header d-flex align-items-center fixed-top">
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
-      <a href="index.php" class="logo d-flex align-items-center">
+      <a href="index.html" class="logo d-flex align-items-center">
         <!-- Uncomment the line below if you also wish to use an image logo -->
         <!-- <img src="assets/img/logo.png" alt=""> -->
         <h1>What's Happening</h1>
       </a>
-
-<<<<<<< HEAD
-      <nav id="navbar" class="navbar">
-        <ul>
-          <li><a href="index.php">Home</a></li>
-          <li><a href="events.php">Events</a></li>
-          <li class="dropdown"><a href="groups.php"><span>Community Groups</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
-            <ul>
-              <li><a href="search-result.php">Search Result</a></li>
-              <li><a href="#">Drop Down 1</a></li>
-              <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
-                <ul>
-                  <li><a href="#">Deep Drop Down 1</a></li>
-                  <li><a href="#">Deep Drop Down 2</a></li>
-                  <li><a href="#">Deep Drop Down 3</a></li>
-                  <li><a href="#">Deep Drop Down 4</a></li>
-                  <li><a href="#">Deep Drop Down 5</a></li>
-                </ul>
-              </li>
-              <li><a href="#">Drop Down 2</a></li>
-              <li><a href="#">Drop Down 3</a></li>
-              <li><a href="#">Drop Down 4</a></li>
-            </ul>
-          </li>
-
-          <li><a href="about.php">About</a></li>
-          <li><a href="login.php">Login</a></li>
-        </ul>
-      </nav><!-- .navbar -->
-
-=======
-
-
       <?php include 'navbar.php'; ?>
 
-     
- 
->>>>>>> master
       <div class="position-relative">
         <a href="#" class="mx-2"><span class="bi-facebook"></span></a>
         <a href="#" class="mx-2"><span class="bi-twitter"></span></a>
@@ -105,7 +61,7 @@
 
         <!-- ======= Search Form ======= -->
         <div class="search-form-wrap js-search-form-wrap">
-          <form action="search-result.php" class="search-form">
+          <form action="search-result.html" class="search-form">
             <span class="icon bi-search"></span>
             <input type="text" placeholder="Search" class="form-control">
             <button class="btn js-search-close"><span class="bi-x"></span></button>
@@ -118,217 +74,173 @@
 
   </header><!-- End Header -->
 
+ 
+
   <main id="main">
-    <section>
+
+    <section class="single-post-content"  id="search-result" class="search-result">
       <div class="container">
         <div class="row">
+          <div class="col-md-9 post-content" data-aos="fade-up">
 
-          <div class="col-md-9" data-aos="fade-up">
-<<<<<<< HEAD
-            <h3 class="category-title">Category: Add</h3>
-
-            <div class="d-md-flex post-entry-2 half">
-              <a href="single-post.php" class="me-4 thumbnail">
-                <img src="assets/img/post-landscape-6.jpg" alt="" class="img-fluid">
-              </a>
-              <div>
-                <div class="post-meta"><span class="date">Culture</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
-                <h3><a href="single-post.php">What is the son of Football Coach John Gruden, Deuce Gruden doing Now?</a></h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio placeat exercitationem magni voluptates dolore. Tenetur fugiat voluptates quas, nobis error deserunt aliquam temporibus sapiente, laudantium dolorum itaque libero eos deleniti?</p>
-                <div class="d-flex align-items-center author">
-                  <div class="photo"><img src="assets/img/person-2.jpg" alt="" class="img-fluid"></div>
-                  <div class="name">
-                    <h3 class="m-0 p-0">Wade Warren</h3>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="d-md-flex post-entry-2 half">
-              <a href="single-post.php" class="me-4 thumbnail">
-                <img src="assets/img/post-landscape-1.jpg" alt="" class="img-fluid">
-              </a>
-              <div>
-                <div class="post-meta"><span class="date">Culture</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
-                <h3><a href="single-post.php">What is the son of Football Coach John Gruden, Deuce Gruden doing Now?</a></h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio placeat exercitationem magni voluptates dolore. Tenetur fugiat voluptates quas, nobis error deserunt aliquam temporibus sapiente, laudantium dolorum itaque libero eos deleniti?</p>
-                <div class="d-flex align-items-center author">
-                  <div class="photo"><img src="assets/img/person-2.jpg" alt="" class="img-fluid"></div>
-                  <div class="name">
-                    <h3 class="m-0 p-0">Wade Warren</h3>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="d-md-flex post-entry-2 half">
-              <a href="single-post.php" class="me-4 thumbnail">
-                <img src="assets/img/post-landscape-2.jpg" alt="" class="img-fluid">
-              </a>
-              <div>
-                <div class="post-meta"><span class="date">Culture</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
-                <h3><a href="single-post.php">What is the son of Football Coach John Gruden, Deuce Gruden doing Now?</a></h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio placeat exercitationem magni voluptates dolore. Tenetur fugiat voluptates quas, nobis error deserunt aliquam temporibus sapiente, laudantium dolorum itaque libero eos deleniti?</p>
-                <div class="d-flex align-items-center author">
-                  <div class="photo"><img src="assets/img/person-2.jpg" alt="" class="img-fluid"></div>
-                  <div class="name">
-                    <h3 class="m-0 p-0">Wade Warren</h3>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="d-md-flex post-entry-2 half">
-              <a href="single-post.php" class="me-4 thumbnail">
-                <img src="assets/img/post-landscape-3.jpg" alt="" class="img-fluid">
-              </a>
-              <div>
-                <div class="post-meta"><span class="date">Culture</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
-                <h3><a href="single-post.php">What is the son of Football Coach John Gruden, Deuce Gruden doing Now?</a></h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio placeat exercitationem magni voluptates dolore. Tenetur fugiat voluptates quas, nobis error deserunt aliquam temporibus sapiente, laudantium dolorum itaque libero eos deleniti?</p>
-                <div class="d-flex align-items-center author">
-                  <div class="photo"><img src="assets/img/person-2.jpg" alt="" class="img-fluid"></div>
-                  <div class="name">
-                    <h3 class="m-0 p-0">Wade Warren</h3>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="d-md-flex post-entry-2 half">
-              <a href="single-post.php" class="me-4 thumbnail">
-                <img src="assets/img/post-landscape-4.jpg" alt="" class="img-fluid">
-              </a>
-              <div>
-                <div class="post-meta"><span class="date">Culture</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
-                <h3><a href="single-post.php">What is the son of Football Coach John Gruden, Deuce Gruden doing Now?</a></h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio placeat exercitationem magni voluptates dolore. Tenetur fugiat voluptates quas, nobis error deserunt aliquam temporibus sapiente, laudantium dolorum itaque libero eos deleniti?</p>
-                <div class="d-flex align-items-center author">
-                  <div class="photo"><img src="assets/img/person-2.jpg" alt="" class="img-fluid"></div>
-                  <div class="name">
-                    <h3 class="m-0 p-0">Wade Warren</h3>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="text-start py-4">
-              <div class="custom-pagination">
-                <a href="#" class="prev">Prevous</a>
-                <a href="#" class="active">1</a>
-                <a href="#">2</a>
-                <a href="#">3</a>
-                <a href="#">4</a>
-                <a href="#">5</a>
-                <a href="#" class="next">Next</a>
-              </div>
-            </div>
-=======
-            <h3 class="category-title">EVENT CATEGORY: All   </h3>
-
+            <!-- ======= Single Post Content ======= -->
             
             <?php
+                    // Initialize variables to hold event details
+                    $eventNumber = isset($_GET['eventNumber']) ? $_GET['eventNumber'] : null;
+                    $eventDetails = null;
 
-$events = [];
-$groups = [];
-
-
-
-
-// Open and read events CSV
-if (($file = fopen("files/events.csv", "r")) !== false) {
-    // Assuming the first row is headers, skip it
-    $selectedEventType = isset($_GET['type']) ? $_GET['type'] : 'all';
-
-   
-    while (($data = fgetcsv($file, 1000, ",")) !== false) {
-      echo "<script>console.log($selectedEventType);</script>";
-
-        // $events[] = $data; // Append each row of data to the events array
-        if ($selectedEventType == 'all' || strtolower($data[2]) == strtolower($selectedEventType)) {
-          $events[] = $data;
-      }
-    }
-    fclose($file); // Close the events CSV file
-}
-
-// Open and read groups CSV and create an associative array
-if (($file1 = fopen("files/groups.csv", "r")) !== false) {
-    // Assuming the first row is headers, skip it
-    
-    while (($data2 = fgetcsv($file1, 1000, ",")) !== false) {
-        // Assuming the first column in groups.csv is the group name
-        $groups[] = $data2; // Use group name as the key
-    }
-    fclose($file1); // Close the groups CSV file
-}
-
-// Loop through each event
-foreach ($events as $event) {
-  $eventNumber = $event[0];
-
-  $groupName = $event[1];
-  $eventType = $event[2];
-  $date = $event[3];
-  $title = $event[4];
-  $description = $event[5];
-  $image = $event[6];
-  
-  foreach ($groups as $group) {
-    if ($group[0] === $groupName) {
-        // Assuming the group's display name is in the same position as $groupName
-        $groupImage = $group[3];
-    }
-}
-  
-
-    // Look up the group image using the group name from the event
-  
-    echo "<div class='d-md-flex post-entry-2 half'>";
-    echo "<a href='single-post.php?eventNumber={$eventNumber}' class='me-4 thumbnail'>";
-    echo "<img src='{$image}' alt='' class='img-fluid'>";
-    echo '</a>';
-    echo "<div>";
-    echo "<div class='post-meta'><span class='date'>{$eventType}</span> <span class='mx-1'>&bullet;</span> <span>{$date}</span></div>";
-    echo "<h3><a href='single-post.php?eventNumber=" . htmlspecialchars($eventNumber) . "'>" . htmlspecialchars($title) . "</a></h3>";
-    // echo "<h3><a href='single-post.php'>{$title}</a></h3>";
-    echo "<p>{$description}</p>"; // Use $description variable if you have it from the CSV
-    echo '<div class="d-flex align-items-center author">';
-    echo "<div class='photo'><img src='{$groupImage}' alt='' class='img-fluid'></div>";
-    echo "<div class='name'>";
-    echo "<h3 class='m-0 p-0'>{$groupName}</h3>";
-    echo '</div>';
-    echo '</div>';
-    echo '</div>';
-    echo '</div>';
-  
-}
-?>
-
+                    if ($eventNumber) {
+                        // Open and read events CSV
+                        if (($file = fopen("files/events.csv", "r")) !== false) {
+                            while (($data = fgetcsv($file, 1000, ",")) !== false) {
+                                if ($data[0] == $eventNumber) {
+                                    $eventDetails = $data;
+                                    break;
+                                }
+                            }
+                            fclose($file);
+                        }
+                    }
+                    
+                     $organizer= "Organizer";
+                     // Check if event details are found
+                    if ($eventDetails) {
+                        // Display event details
+                        echo "<div class='post-meta'><span class='date'>" . htmlspecialchars($eventDetails[2]) . "</span> <span class='mx-1'>&bullet;</span> <span>" . htmlspecialchars(date('M jS \'y', strtotime($eventDetails[3]))) . "</span></div>";
             
+                        // Display event title
+                        echo "<h1 class='mb-5'>" . htmlspecialchars($eventDetails[4]) . "</h1>";
+                        echo "<figcaption >"."<h3>". $organizer. " " . htmlspecialchars($eventDetails[1]) ."</h3>". "</figcaption>";
+                        // Display the first character of the description
+                        echo "<p><span class='firstcharacter'>" . htmlspecialchars($eventDetails[5][0]) . "</span>" . htmlspecialchars(substr($eventDetails[5], 1)) . "</p>";
 
-            
-            
+                        // Display event image with caption
+                        echo "<figure class='my-4'>";
+                        echo "<img src='" . htmlspecialchars($eventDetails[6]) . "' alt='Event Image' class='img-fluid'>";
+                        
+                        echo "</figure>";
 
-            
+                    } else {
+                        echo "<p>Event not found.</p>";
+                    }
+                    
+            ?>
 
-    
+            <!-- ======= Comments ======= -->
+            <div class="comments">
+              <h5 class="comment-title py-4">2 Comments</h5>
+              <div class="comment d-flex mb-4">
+                <div class="flex-shrink-0">
+                  <div class="avatar avatar-sm rounded-circle">
+                    <img class="avatar-img" src="assets/img/person-5.jpg" alt="" class="img-fluid">
+                  </div>
+                </div>
+                <div class="flex-grow-1 ms-2 ms-sm-3">
+                  <div class="comment-meta d-flex align-items-baseline">
+                    <h6 class="me-2">Jordan Singer</h6>
+                    <span class="text-muted">2d</span>
+                  </div>
+                  <div class="comment-body">
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Non minima ipsum at amet doloremque qui magni, placeat deserunt pariatur itaque laudantium impedit aliquam eligendi repellendus excepturi quibusdam nobis esse accusantium.
+                  </div>
 
-            
->>>>>>> master
+                  <div class="comment-replies bg-light p-3 mt-3 rounded">
+                    <h6 class="comment-replies-title mb-4 text-muted text-uppercase">2 replies</h6>
+
+                    <div class="reply d-flex mb-4">
+                      <div class="flex-shrink-0">
+                        <div class="avatar avatar-sm rounded-circle">
+                          <img class="avatar-img" src="assets/img/person-4.jpg" alt="" class="img-fluid">
+                        </div>
+                      </div>
+                      <div class="flex-grow-1 ms-2 ms-sm-3">
+                        <div class="reply-meta d-flex align-items-baseline">
+                          <h6 class="mb-0 me-2">Brandon Smith</h6>
+                          <span class="text-muted">2d</span>
+                        </div>
+                        <div class="reply-body">
+                          Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                        </div>
+                      </div>
+                    </div>
+                    <div class="reply d-flex">
+                      <div class="flex-shrink-0">
+                        <div class="avatar avatar-sm rounded-circle">
+                          <img class="avatar-img" src="assets/img/person-3.jpg" alt="" class="img-fluid">
+                        </div>
+                      </div>
+                      <div class="flex-grow-1 ms-2 ms-sm-3">
+                        <div class="reply-meta d-flex align-items-baseline">
+                          <h6 class="mb-0 me-2">James Parsons</h6>
+                          <span class="text-muted">1d</span>
+                        </div>
+                        <div class="reply-body">
+                          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio dolore sed eos sapiente, praesentium.
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="comment d-flex">
+                <div class="flex-shrink-0">
+                  <div class="avatar avatar-sm rounded-circle">
+                    <img class="avatar-img" src="assets/img/person-2.jpg" alt="" class="img-fluid">
+                  </div>
+                </div>
+                <div class="flex-shrink-1 ms-2 ms-sm-3">
+                  <div class="comment-meta d-flex">
+                    <h6 class="me-2">Santiago Roberts</h6>
+                    <span class="text-muted">4d</span>
+                  </div>
+                  <div class="comment-body">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto laborum in corrupti dolorum, quas delectus nobis porro accusantium molestias sequi.
+                  </div>
+                </div>
+              </div>
+            </div><!-- End Comments -->
+
+            <!-- ======= Comments Form ======= -->
+            <div class="row justify-content-center mt-5">
+
+              <div class="col-lg-12">
+                <h5 class="comment-title">Leave a Comment</h5>
+                <div class="row">
+                  <div class="col-lg-6 mb-3">
+                    <label for="comment-name">Name</label>
+                    <input type="text" class="form-control" id="comment-name" placeholder="Enter your name">
+                  </div>
+                  <div class="col-lg-6 mb-3">
+                    <label for="comment-email">Email</label>
+                    <input type="text" class="form-control" id="comment-email" placeholder="Enter your email">
+                  </div>
+                  <div class="col-12 mb-3">
+                    <label for="comment-message">Message</label>
+
+                    <textarea class="form-control" id="comment-message" placeholder="Enter your name" cols="30" rows="10"></textarea>
+                  </div>
+                  <div class="col-12">
+                    <input type="submit" class="btn btn-primary" value="Post comment">
+                  </div>
+                </div>
+              </div>
+            </div><!-- End Comments Form -->
+
           </div>
-
           <div class="col-md-3">
             <!-- ======= Sidebar ======= -->
             <div class="aside-block">
 
               <ul class="nav nav-pills custom-tab-nav mb-4" id="pills-tab" role="tablist">
                 <li class="nav-item" role="presentation">
-                  <button class="nav-link active" id="pills-popular-tab" data-bs-toggle="pill" data-bs-target="#pills-popular" type="button" role="tab" aria-controls="pills-popular" aria-selected="true">UPCOMING</button>
+                  <button class="nav-link active" id="pills-popular-tab" data-bs-toggle="pill" data-bs-target="#pills-popular" type="button" role="tab" aria-controls="pills-popular" aria-selected="true">Popular</button>
                 </li>
-                
                 <li class="nav-item" role="presentation">
-                  <button class="nav-link" id="pills-latest-tab" data-bs-toggle="pill" data-bs-target="#pills-latest" type="button" role="tab" aria-controls="pills-latest" aria-selected="false">LATEST ADDED</button>
+                  <button class="nav-link" id="pills-trending-tab" data-bs-toggle="pill" data-bs-target="#pills-trending" type="button" role="tab" aria-controls="pills-trending" aria-selected="false">Trending</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="pills-latest-tab" data-bs-toggle="pill" data-bs-target="#pills-latest" type="button" role="tab" aria-controls="pills-latest" aria-selected="false">Latest</button>
                 </li>
               </ul>
 
@@ -454,26 +366,17 @@ foreach ($events as $event) {
               </div>
             </div>
 
-            
+            <deo -->
 
             <div class="aside-block">
-              <h3 class="aside-title">EVENTS</h3>
+              <h3 class="aside-title">Events</h3>
               <ul class="aside-links list-unstyled">
-<<<<<<< HEAD
-                <li><a href="events.php"><i class="bi bi-chevron-right"></i> All Events</a></li>
-                <li><a href="events.php"><i class="bi bi-chevron-right"></i> Music</a></li>
-                <li><a href="events.php"><i class="bi bi-chevron-right"></i> Art+Culture</a></li>
-                <li><a href="events.php"><i class="bi bi-chevron-right"></i> Sport</a></li>
-                <li><a href="events.php"><i class="bi bi-chevron-right"></i> Food</a></li>
-                <li><a href="events.php"><i class="bi bi-chevron-right"></i> Fund Raiser</a></li>
-=======
                 <li><a href="events.php?type=all"><i class="bi bi-chevron-right"></i> All Events</a></li>
-                <li><a href="events.php?type=ArtCulture"><i class="bi bi-chevron-right"></i> Music</a></li>
-                <li><a href="events.php?type=ArtCulture"><i class="bi bi-chevron-right"></i> Art+Culture</a></li>
-                <li><a href="events.php?type=Sports"><i class="bi bi-chevron-right"></i> Sport</a></li>
-                <li><a href="events.php?type=Food"><i class="bi bi-chevron-right"></i> Food</a></li>
-                <li><a href="events.php?type=Fund Raiser"><i class="bi bi-chevron-right"></i> Fund Raiser</a></li>
->>>>>>> master
+                <li><a href="events.php?type=music"><i class="bi bi-chevron-right"></i> Music</a></li>
+                <li><a href="events.php?type=arts"><i class="bi bi-chevron-right"></i> Arts+culture</a></li>
+                <li><a href="events.php?type=sport"><i class="bi bi-chevron-right"></i> Sport</a></li>
+                <li><a href="events.php?type=food"><i class="bi bi-chevron-right"></i> Food</a></li>
+                <li><a href="events.php?type=fundraiser"><i class="bi bi-chevron-right"></i> Fund Raiser</a></li>
                 
               </ul>
             </div><!-- End Categories -->
@@ -481,27 +384,17 @@ foreach ($events as $event) {
             <div class="aside-block">
               <h3 class="aside-title">Tags</h3>
               <ul class="aside-tags list-unstyled">
-<<<<<<< HEAD
-                <li><a href="events.php">All Events</a></li>
-                <li><a href="events.php">Music</a></li>
-                <li><a href="events.php">Art+Culture</a></li>
-                <li><a href="events.php">Sport</a></li>
-                <li><a href="events.php">Food</a></li>
-                <li><a href="events.php">Fund Raiser</a></li>
-=======
+              <ul class="aside-tags list-unstyled">
                 <li><a href="events.php?type=all">All Events</a></li>
-                <li><a href="events.php?type=ArtCulture">Music</a></li>
-                <li><a href="events.php?type=ArtCulture">Art+Culture</a></li>
-                <li><a href="events.php?type=Sports">Sport</a></li>
-                <li><a href="events.php?type=Food">Food</a></li>
-                <li><a href="events.php?type=Fund Raiser">Fund Raiser</a></li>
->>>>>>> master
-                
+                <li><a href="events.php?type=music">Music</a></li>
+                <li><a href="events.php?type=arts">Art+Culture</a></li>
+                <li><a href="events.php?type=sport">Sport</a></li>
+                <li><a href="events.php?type=food">Food</a></li>
+                <li><a href="events.php?type=fundraiser">Fund Raiser</a></li>
               </ul>
             </div><!-- End Tags -->
 
           </div>
-
         </div>
       </div>
     </section>
@@ -515,46 +408,22 @@ foreach ($events as $event) {
 
         <div class="row g-5">
           <div class="col-lg-4">
-            <h3 class="footer-heading">About What's Happening</h3>
+            <h3 class="footer-heading">About ZenBlog</h3>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam ab, perspiciatis beatae autem deleniti voluptate nulla a dolores, exercitationem eveniet libero laudantium recusandae officiis qui aliquid blanditiis omnis quae. Explicabo?</p>
             <p><a href="about.php" class="footer-link-more">Learn More</a></p>
           </div>
-<<<<<<< HEAD
-          <div class="col-6 col-lg-2">
-            <h3 class="footer-heading">Navigation</h3>
-            <ul class="footer-links list-unstyled">
-              <li><a href="index.php"><i class="bi bi-chevron-right"></i> Home</a></li>
-              <li><a href="index.php"><i class="bi bi-chevron-right"></i> Events</a></li>
-              <li><a href="category.php"><i class="bi bi-chevron-right"></i> Community</a></li>
-              
-              <li><a href="about.php"><i class="bi bi-chevron-right"></i> About us</a></li>
-              <li><a href="contact.php"><i class="bi bi-chevron-right"></i> Login</a></li>
-            </ul>
-          </div>
-          <div class="col-6 col-lg-2">
-            <h3 class="footer-heading">Categories</h3>
-            <ul class="footer-links list-unstyled">
-              <li><a href="#"><i class="bi bi-chevron-right"></i> All Events</a></li>
-              <li><a href="#"><i class="bi bi-chevron-right"></i> Music</a></li>
-              <li><a href="#"><i class="bi bi-chevron-right"></i> Arts+culture</a></li>
-              <li><a href="#"><i class="bi bi-chevron-right"></i> Sport</a></li>
-              <li><a href="#"><i class="bi bi-chevron-right"></i> Food</a></li>
-              <li><a href="#"><i class="bi bi-chevron-right"></i> Fund Raiser</a></li>
-=======
-
           <?php include 'footer.php'; ?>
-
+          
           <div class="col-6 col-lg-2">
-            <h3 class="footer-heading">Events</h3>
+          <h3 class="footer-heading">Events</h3>
             <ul class="footer-links list-unstyled">
               <li><a href="events.php?type=all"><i class="bi bi-chevron-right"></i> All Events</a></li>
               <li><a href="events.php?type=ArtCulture"><i class="bi bi-chevron-right"></i> Music</a></li>
-              <li><a href="events.php?type=ArtCulture"><i class="bi bi-chevron-right"></i> Arts+culture</a></li>
+              <li><a href="events.php?type=ArtCulture"><i class="bi bi-chevron-right"></i> Culture</a></li>
               <li><a href="events.php?type=Sports"><i class="bi bi-chevron-right"></i> Sport</a></li>
               <li><a href="events.php?type=Food"><i class="bi bi-chevron-right"></i> Food</a></li>
               <li><a href="events.php?type=Fund Raiser"><i class="bi bi-chevron-right"></i> Fund Raiser</a></li>
->>>>>>> master
-              
+             
             </ul>
           </div>
 

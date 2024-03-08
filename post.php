@@ -5,11 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-<<<<<<< HEAD
-  <title>ZenBlog Bootstrap Template - Contact</title>
-=======
-  <title>What's Happening</title>
->>>>>>> master
+  <title>What's Happening - Post</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -53,42 +49,10 @@
         <!-- <img src="assets/img/logo.png" alt=""> -->
         <h1>What's Happening</h1>
       </a>
-<<<<<<< HEAD
-
-      <nav id="navbar" class="navbar">
-        <ul>
-          <li><a href="index.php">Home</a></li>
-          <li><a href="events.php">Events</a></li>
-          <li class="dropdown"><a href="groups.php"><span>Community Groups</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
-            <ul>
-              <li><a href="search-result.php">Search Result</a></li>
-              <li><a href="#">Drop Down 1</a></li>
-              <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
-                <ul>
-                  <li><a href="#">Deep Drop Down 1</a></li>
-                  <li><a href="#">Deep Drop Down 2</a></li>
-                  <li><a href="#">Deep Drop Down 3</a></li>
-                  <li><a href="#">Deep Drop Down 4</a></li>
-                  <li><a href="#">Deep Drop Down 5</a></li>
-                </ul>
-              </li>
-              <li><a href="#">Drop Down 2</a></li>
-              <li><a href="#">Drop Down 3</a></li>
-              <li><a href="#">Drop Down 4</a></li>
-            </ul>
-          </li>
-
-          <li><a href="about.php">About</a></li>
-          <li><a href="login.php">Login</a></li>
-        </ul>
-      </nav><!-- .navbar -->
-
-=======
       <?php include 'navbar.php'; ?>
 
       
  -->
->>>>>>> master
       <div class="position-relative">
         <a href="#" class="mx-2"><span class="bi-facebook"></span></a>
         <a href="#" class="mx-2"><span class="bi-twitter"></span></a>
@@ -118,36 +82,72 @@
 
         <div class="row">
           <div class="col-lg-12 text-center mb-5">
-            <h1 class="page-title">Login</h1>
+            <h1 class="page-title">Post New Event </h1>
           </div>
         </div>
 
+        <?php
+         // Get the last event to find the last event number
+        
+         $path = 'files/images/events/';
+        if($_SERVER["REQUEST_METHOD"] == "POST"){
+          $csvFile = "files/events.csv";
+         
+         
+          $countNo = count(file($csvFile));
+          $groupName=$_POST['communityGroup'];
+          $title = $_POST['eventTitle'];
+          $date = $_POST['eventDate'];
+          $eventType= $_POST['eventType'];
+          $imageName = $_POST['imageName'];
+          $description = $_POST['eventDescription'];
+          $EventNumber = $countNo + 1;
+          //// here i added image path with the image name
+          $fullImage = $path . $imageName .'.jpg';
+         
+          // printing all info for the csv file
+          $newEvent = "{$EventNumber},{$groupName},{$eventType},{$date},{$title},{$description},{$fullImage}";
+
+
+          // write info to csv file
+          $file = fopen($csvFile, "a"); // Make sure the directory exists and is writable
+          fwrite($file, $newEvent);
+          fclose($file);
+
         
 
+        }
+        ?>
+
         <div class="form mt-5">
-          <form action="forms/contact.php" method="post" role="form" class="php-email-form">
-            <div class="row">
-              <div class="form-group col-md-6">
-                <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
-              </div>
-              <div class="form-group col-md-6">
-                <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
-              </div>
-            </div>
-            <div class="form-group">
-              <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
-            </div>
-            <div class="form-group">
-              <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
-            </div>
-            <div class="my-3">
-              <div class="loading">Loading</div>
-              <div class="error-message"></div>
-              <div class="sent-message">Your message has been sent. Thank you!</div>
-            </div>
-            <div class="text-center"><button type="submit">Login</button></div>
-          </form>
+        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" role="form">
+                <div class="form-group">
+                <input type="text" name="communityGroup" class="form-control" id="community-group" placeholder="Your Community Group" required>
+                </div>
+                <div class="form-group">
+                <input type="text" name="eventTitle" class="form-control" id="event-title" placeholder="Your Event Title" required>
+                </div>
+                <div class="form-group">
+                <input type="text" name="eventDate" class="form-control" id="event-date" placeholder="Your Event Date (Format: day/month/year)" required>
+                </div>
+                <div class="form-group">
+                <input type="text" name="eventType" class="form-control" id="event-type" placeholder="Your Event Type" required>
+                </div>
+                <div class="form-group">
+                <input type="text" name="imageName" class="form-control" id="image-name" placeholder="Image Name" required>
+                </div>
+                <div class="form-group">
+                <textarea class="form-control" name="eventDescription" rows="5" placeholder="The Event Description" required></textarea>
+                </div>
+                <div class="my-3">
+                <div class="loading">Loading</div>
+                <div class="error-message"></div>
+                <div class="sent-message">Your message has been sent. Thank you!</div>
+                </div>
+                <div class="text-center"><button type="submit">Submit</button></div>
+            </form>
         </div><!-- End Contact Form -->
+
 
       </div>
     </section>
@@ -166,30 +166,6 @@
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam ab, perspiciatis beatae autem deleniti voluptate nulla a dolores, exercitationem eveniet libero laudantium recusandae officiis qui aliquid blanditiis omnis quae. Explicabo?</p>
             <p><a href="about.php" class="footer-link-more">Learn More</a></p>
           </div>
-<<<<<<< HEAD
-          <div class="col-6 col-lg-2">
-            <h3 class="footer-heading">Navigation</h3>
-            <ul class="footer-links list-unstyled">
-              <li><a href="index.php"><i class="bi bi-chevron-right"></i> Home</a></li>
-              <li><a href="index.php"><i class="bi bi-chevron-right"></i> Events</a></li>
-              <li><a href="category.php"><i class="bi bi-chevron-right"></i> Community Groups</a></li>
-              
-              <li><a href="about.php"><i class="bi bi-chevron-right"></i> About </a></li>
-              <li><a href="contact.php"><i class="bi bi-chevron-right"></i> Login</a></li>
-            </ul>
-          </div>
-          <div class="col-6 col-lg-2">
-            <h3 class="footer-heading">Events</h3>
-            <ul class="footer-links list-unstyled">
-              <li><a href="category.php"><i class="bi bi-chevron-right"></i> Home</a></li>
-              <li><a href="category.php"><i class="bi bi-chevron-right"></i> Events</a></li>
-              <li><a href="category.php"><i class="bi bi-chevron-right"></i> Art+Culture</a></li>
-              <li><a href="category.php"><i class="bi bi-chevron-right"></i> Sport</a></li>
-              <li><a href="category.php"><i class="bi bi-chevron-right"></i> Food</a></li>
-              <li><a href="category.php"><i class="bi bi-chevron-right"></i> Fund Raiser</a></li>
-              
-
-=======
           <?php include 'footer.php'; ?>
           <div class="col-6 col-lg-2">
           <h3 class="footer-heading">Events</h3>
@@ -201,7 +177,6 @@
               <li><a href="events.php?type=Food"><i class="bi bi-chevron-right"></i> Food</a></li>
               <li><a href="events.php?type=Fund Raiser"><i class="bi bi-chevron-right"></i> Fund Raiser</a></li>
              
->>>>>>> master
             </ul>
           </div>
 

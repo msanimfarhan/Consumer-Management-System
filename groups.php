@@ -5,7 +5,11 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
+<<<<<<< HEAD
   <title>ZenBlog Bootstrap Template - About</title>
+=======
+  <title>What's Happening </title>
+>>>>>>> master
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -49,6 +53,7 @@
         <!-- <img src="assets/img/logo.png" alt=""> -->
         <h1>What's Happening</h1>
       </a>
+<<<<<<< HEAD
 
       <nav id="navbar" class="navbar">
         <ul>
@@ -78,6 +83,11 @@
         </ul>
       </nav><!-- .navbar -->
 
+=======
+      <?php include 'navbar.php'; ?>
+
+      
+>>>>>>> master
       <div class="position-relative">
         <a href="#" class="mx-2"><span class="bi-facebook"></span></a>
         <a href="#" class="mx-2"><span class="bi-twitter"></span></a>
@@ -114,6 +124,7 @@
               </div>
             </div>
           </div>
+<<<<<<< HEAD
           <div class="col-lg-4 text-center mb-5">
             <img src="assets/img/person-1.jpg" alt="" class="img-fluid rounded-circle w-50 mb-4">
             <h4>Group Name</h4>
@@ -150,6 +161,38 @@
             <span class="d-block mb-3 text-uppercase">GROUP TYPE</span>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis, perspiciatis repellat maxime, adipisci non ipsam at itaque rerum vitae, necessitatibus nulla animi expedita cumque provident inventore? Voluptatum in tempora earum deleniti, culpa odit veniam, ea reiciendis sunt ullam temporibus aut!</p>
           </div>
+=======
+          <?php
+          // read the csv file
+          if (($file = fopen("files/groups.csv", "r")) !== FALSE) {
+            
+              // used loop to get each data from the csv file
+              while (($data = fgetcsv($file, 1000, ",")) !== FALSE) {
+                  if (is_array($data)) { 
+                      $name = $data[0]; 
+                      $type = $data[1]; 
+                      $description = $data[2];
+                      $image = $data[3]; 
+
+                      echo '<div class="col-lg-4 text-center mb-5">';
+                      echo '<img src="' . $image . '" alt="' . $name . '" class="img-fluid rounded-circle w-50 mb-4">';
+                      echo '<h4>' . $name . '</h4>';
+                      echo '<span class="d-block mb-3 text-uppercase">' . $type . '</span>';
+                      echo '<p>' . $description . '</p>';
+                      echo '</div>';
+                  }
+              }
+
+              fclose($file);
+          } else {
+              echo '<p>Could not open the CSV file.</p>';
+          }
+          ?>
+          
+          
+          
+          
+>>>>>>> master
         </div>
       </div>
     </section>
@@ -168,6 +211,7 @@
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam ab, perspiciatis beatae autem deleniti voluptate nulla a dolores, exercitationem eveniet libero laudantium recusandae officiis qui aliquid blanditiis omnis quae. Explicabo?</p>
             <p><a href="about.php" class="footer-link-more">Learn More</a></p>
           </div>
+<<<<<<< HEAD
           <div class="col-6 col-lg-2">
             <h3 class="footer-heading">Navigation</h3>
             <ul class="footer-links list-unstyled">
@@ -190,6 +234,21 @@
               <li><a href="#"><i class="bi bi-chevron-right"></i> Fund Raiser</a></li>
               
 
+=======
+
+          <?php include 'footer.php'; ?>
+          
+          <div class="col-6 col-lg-2">
+          <h3 class="footer-heading">Events</h3>
+            <ul class="footer-links list-unstyled">
+              <li><a href="events.php?type=all"><i class="bi bi-chevron-right"></i> All Events</a></li>
+              <li><a href="events.php?type=ArtCulture"><i class="bi bi-chevron-right"></i> Music</a></li>
+              <li><a href="events.php?type=ArtCulture"><i class="bi bi-chevron-right"></i> Culture</a></li>
+              <li><a href="events.php?type=Sports"><i class="bi bi-chevron-right"></i> Sport</a></li>
+              <li><a href="events.php?type=Food"><i class="bi bi-chevron-right"></i> Food</a></li>
+              <li><a href="events.php?type=Fund Raiser"><i class="bi bi-chevron-right"></i> Fund Raiser</a></li>
+             
+>>>>>>> master
             </ul>
           </div>
 
