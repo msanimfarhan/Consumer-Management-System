@@ -5,11 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-<<<<<<< HEAD
-  <title>ZenBlog Bootstrap Template - About</title>
-=======
   <title>What's Happening </title>
->>>>>>> master
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -53,41 +49,9 @@
         <!-- <img src="assets/img/logo.png" alt=""> -->
         <h1>What's Happening</h1>
       </a>
-<<<<<<< HEAD
-
-      <nav id="navbar" class="navbar">
-        <ul>
-          <li><a href="index.php">Home</a></li>
-          <li><a href="events.php">Events</a></li>
-          <li class="dropdown"><a href="groups.php"><span>Community Groups</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
-            <ul>
-              <li><a href="search-result.php">Search Result</a></li>
-              <li><a href="#">Drop Down 1</a></li>
-              <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
-                <ul>
-                  <li><a href="#">Deep Drop Down 1</a></li>
-                  <li><a href="#">Deep Drop Down 2</a></li>
-                  <li><a href="#">Deep Drop Down 3</a></li>
-                  <li><a href="#">Deep Drop Down 4</a></li>
-                  <li><a href="#">Deep Drop Down 5</a></li>
-                </ul>
-              </li>
-              <li><a href="#">Drop Down 2</a></li>
-              <li><a href="#">Drop Down 3</a></li>
-              <li><a href="#">Drop Down 4</a></li>
-            </ul>
-          </li>
-
-          <li><a href="about.php">About</a></li>
-          <li><a href="login.php">Login</a></li>
-        </ul>
-      </nav><!-- .navbar -->
-
-=======
       <?php include 'navbar.php'; ?>
 
       
->>>>>>> master
       <div class="position-relative">
         <a href="#" class="mx-2"><span class="bi-facebook"></span></a>
         <a href="#" class="mx-2"><span class="bi-twitter"></span></a>
@@ -124,75 +88,60 @@
               </div>
             </div>
           </div>
-<<<<<<< HEAD
-          <div class="col-lg-4 text-center mb-5">
-            <img src="assets/img/person-1.jpg" alt="" class="img-fluid rounded-circle w-50 mb-4">
-            <h4>Group Name</h4>
-            <span class="d-block mb-3 text-uppercase">GROUP TYPE</span>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis, perspiciatis repellat maxime, adipisci non ipsam at itaque rerum vitae, necessitatibus nulla animi expedita cumque provident inventore? Voluptatum in tempora earum deleniti, culpa odit veniam, ea reiciendis sunt ullam temporibus aut!</p>
-          </div>
-          <div class="col-lg-4 text-center mb-5">
-            <img src="assets/img/person-2.jpg" alt="" class="img-fluid rounded-circle w-50 mb-4">
-            <h4>Group Name</h4>
-            <span class="d-block mb-3 text-uppercase">GROUP TYPE</span>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis, perspiciatis repellat maxime, adipisci non ipsam at itaque rerum vitae, necessitatibus nulla animi expedita cumque provident inventore? Voluptatum in tempora earum deleniti, culpa odit veniam, ea reiciendis sunt ullam temporibus aut!</p>
-          </div>
-          <div class="col-lg-4 text-center mb-5">
-            <img src="assets/img/person-3.jpg" alt="" class="img-fluid rounded-circle w-50 mb-4">
-            <h4>Group Name</h4>
-            <span class="d-block mb-3 text-uppercase">GROUP TYPE</span>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis, perspiciatis repellat maxime, adipisci non ipsam at itaque rerum vitae, necessitatibus nulla animi expedita cumque provident inventore? Voluptatum in tempora earum deleniti, culpa odit veniam, ea reiciendis sunt ullam temporibus aut!</p>
-          </div>
-          <div class="col-lg-4 text-center mb-5">
-            <img src="assets/img/person-4.jpg" alt="" class="img-fluid rounded-circle w-50 mb-4">
-            <h4>Group Name</h4>
-            <span class="d-block mb-3 text-uppercase">GROUP TYPE</span>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis, perspiciatis repellat maxime, adipisci non ipsam at itaque rerum vitae, necessitatibus nulla animi expedita cumque provident inventore? Voluptatum in tempora earum deleniti, culpa odit veniam, ea reiciendis sunt ullam temporibus aut!</p>
-          </div>
-          <div class="col-lg-4 text-center mb-5">
-            <img src="assets/img/person-5.jpg" alt="" class="img-fluid rounded-circle w-50 mb-4">
-            <h4>Group Name</h4>
-            <span class="d-block mb-3 text-uppercase">GROUP TYPE</span>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis, perspiciatis repellat maxime, adipisci non ipsam at itaque rerum vitae, necessitatibus nulla animi expedita cumque provident inventore? Voluptatum in tempora earum deleniti, culpa odit veniam, ea reiciendis sunt ullam temporibus aut!</p>
-          </div>
-          <div class="col-lg-4 text-center mb-5">
-            <img src="assets/img/person-6.jpg" alt="" class="img-fluid rounded-circle w-50 mb-4">
-            <h4>Group Name</h4>
-            <span class="d-block mb-3 text-uppercase">GROUP TYPE</span>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis, perspiciatis repellat maxime, adipisci non ipsam at itaque rerum vitae, necessitatibus nulla animi expedita cumque provident inventore? Voluptatum in tempora earum deleniti, culpa odit veniam, ea reiciendis sunt ullam temporibus aut!</p>
-          </div>
-=======
+
+          
+
+
           <?php
-          // read the csv file
-          if (($file = fopen("files/groups.csv", "r")) !== FALSE) {
-            
-              // used loop to get each data from the csv file
-              while (($data = fgetcsv($file, 1000, ",")) !== FALSE) {
-                  if (is_array($data)) { 
-                      $name = $data[0]; 
-                      $type = $data[1]; 
-                      $description = $data[2];
-                      $image = $data[3]; 
+          
+          include 'serverlogin.php'; 
 
-                      echo '<div class="col-lg-4 text-center mb-5">';
-                      echo '<img src="' . $image . '" alt="' . $name . '" class="img-fluid rounded-circle w-50 mb-4">';
-                      echo '<h4>' . $name . '</h4>';
-                      echo '<span class="d-block mb-3 text-uppercase">' . $type . '</span>';
-                      echo '<p>' . $description . '</p>';
-                      echo '</div>';
-                  }
-              }
+          $conn = new mysqli($db_hostname, $db_username, $db_password, $db_database);
+          
 
-              fclose($file);
-          } else {
-              echo '<p>Could not open the CSV file.</p>';
+          // Check connection
+          if ($conn->connect_error) {
+              die("Connection failed: " . $conn->connect_error);
           }
+
+          $sql = "SELECT GroupName, GroupType, GroupDesc, GroupImage FROM groups";
+          $result = $conn->query($sql);
+
+          if ($result->num_rows > 0) {
+              // Loop to fetch rows
+              while ($row = $result->fetch_assoc()) {
+                  $name = htmlspecialchars($row['GroupName']);
+                  $imagePath = htmlspecialchars($row['GroupImage']);
+                  $type = htmlspecialchars($row['GroupType']);
+                  $description = htmlspecialchars($row['GroupDesc']);
+                  
+                  
+
+                  // Using heredoc syntax for the HTML block
+                  $htmlBlock = <<<HTML
+                  <div class="col-lg-4 text-center mb-5">
+                      <img src="{$imagePath}" alt="{$name}" class="img-fluid rounded-circle w-50 mb-4">
+                      <h4>{$name}</h4>
+                      <span class="d-block mb-3 text-uppercase">{$type}</span>
+                      <p>{$description}</p>
+                  </div>
+                  HTML;
+                  echo $htmlBlock;
+              }
+          } else {
+              echo "<p>No community groups found.</p>";
+          }
+
+          $conn->close();
+           
+
           ?>
+
           
           
           
           
->>>>>>> master
+          
         </div>
       </div>
     </section>
@@ -211,30 +160,6 @@
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam ab, perspiciatis beatae autem deleniti voluptate nulla a dolores, exercitationem eveniet libero laudantium recusandae officiis qui aliquid blanditiis omnis quae. Explicabo?</p>
             <p><a href="about.php" class="footer-link-more">Learn More</a></p>
           </div>
-<<<<<<< HEAD
-          <div class="col-6 col-lg-2">
-            <h3 class="footer-heading">Navigation</h3>
-            <ul class="footer-links list-unstyled">
-              <li><a href="index.php"><i class="bi bi-chevron-right"></i> Home</a></li>
-              <li><a href="index.php"><i class="bi bi-chevron-right"></i> Events</a></li>
-              <li><a href="category.php"><i class="bi bi-chevron-right"></i> Community Groups</a></li>
-              
-              <li><a href="about.php"><i class="bi bi-chevron-right"></i> About us</a></li>
-              <li><a href="contact.php"><i class="bi bi-chevron-right"></i> Login</a></li>
-            </ul>
-          </div>
-          <div class="col-6 col-lg-2">
-            <h3 class="footer-heading">Events</h3>
-            <ul class="footer-links list-unstyled">
-              <li><a href="#"><i class="bi bi-chevron-right"></i> All Events</a></li>
-              <li><a href="#"><i class="bi bi-chevron-right"></i> Music</a></li>
-              <li><a href="#"><i class="bi bi-chevron-right"></i> Art+Culture</a></li>
-              <li><a href="#"><i class="bi bi-chevron-right"></i> Sport</a></li>
-              <li><a href="#"><i class="bi bi-chevron-right"></i> Food</a></li>
-              <li><a href="#"><i class="bi bi-chevron-right"></i> Fund Raiser</a></li>
-              
-
-=======
 
           <?php include 'footer.php'; ?>
           
@@ -248,7 +173,6 @@
               <li><a href="events.php?type=Food"><i class="bi bi-chevron-right"></i> Food</a></li>
               <li><a href="events.php?type=Fund Raiser"><i class="bi bi-chevron-right"></i> Fund Raiser</a></li>
              
->>>>>>> master
             </ul>
           </div>
 

@@ -86,45 +86,71 @@
             <!-- ======= Single Post Content ======= -->
             
             <?php
-                    // Initialize variables to hold event details
-                    $eventNumber = isset($_GET['eventNumber']) ? $_GET['eventNumber'] : null;
-                    $eventDetails = null;
+                   // fetched datat from serverlogin.php for databse information
+                   include 'serverlogin.php';
 
-                    if ($eventNumber) {
-                        // Open and read events CSV
-                        if (($file = fopen("files/events.csv", "r")) !== false) {
-                            while (($data = fgetcsv($file, 1000, ",")) !== false) {
-                                if ($data[0] == $eventNumber) {
-                                    $eventDetails = $data;
-                                    break;
-                                }
-                            }
-                            fclose($file);
+                    $conn = new mysqli($db_hostname, $db_username, $db_password, $db_database);
+                    // MADE CONNECTION WITH DTABASE
+                    if ($conn->connect_error) {
+                        die("Connection failed: " . $conn->connect_error);
+                    }
+                    // used queryString to retrieve eventNumber
+                    $eventID = $_GET['eventNumber'] ?? null;
+                    
+
+
+                    if ($eventID) {
+                      // used PHP prepared statement
+                      // creating Query Bind parameters
+                        $stmt = $conn->prepare("SELECT e.EventID, e.EventDate, e.EventTitle, e.EventImage, e.EventDesc, 
+                                                        g.GroupName, g.GroupImage, g.ContactName, g.ContactEmail, 
+                                                        et.EventType 
+                                                FROM Events e
+                                                INNER JOIN Groups g ON e.GroupID = g.GroupID
+                                                INNER JOIN EventTypes et ON e.EventTypeID = et.EventTypeID
+                                                WHERE e.EventID = ?");
+                        $stmt->bind_param("i", $eventID);
+
+                        // preparing data and submit
+                        $stmt->execute();
+                        $result = $stmt->get_result();
+
+                        if ($result->num_rows > 0) {
+                            $event = $result->fetch_assoc();
+
+                           // constructing data object so that date and event time can be separated and used 
+                            $dateObject = new DateTime($event['EventDate']);
+                            $formattedDate = $dateObject->format('D d M, Y');
+                            $formattedTime = $dateObject->format('g:i A');
+                            // using heredoc statement to print as given in assignment instruction
+                            $htmlBlock = <<<HTML
+                            <div class="event-details">
+                                <b class="event-meta mb-5">
+                                    <span class="mb-5">{$event['EventType']} . </span>
+                                    <span class="event-date">{$formattedDate}</span> TIME: <span class="event-time">{$formattedTime}</span>
+                                </b>
+                                <h1 class="event-title mt-5 mb-5">{$event['EventTitle']}</h1>
+                                <h3 class="event-organizer">Organizer: {$event['GroupName']}</h3>
+                                <h5 class="contact-info mb-5">(Contact {$event['ContactName']} at {$event['ContactEmail']} for more info)</h5>
+                                <p class="event-description mb-5"><span class="firstcharacter">{$event['EventDesc'][0]}</span>{$event['EventDesc']}</p>                               
+                                <img src="{$event['EventImage']}" alt="Event image" class="event-image img-fluid">
+                            </div>
+
+                            
+                    HTML;
+
+                            echo $htmlBlock;
+                        } else {
+                            echo "<p>Event not found.</p>";
                         }
-                    }
-                    
-                     $organizer= "Organizer";
-                     // Check if event details are found
-                    if ($eventDetails) {
-                        // Display event details
-                        echo "<div class='post-meta'><span class='date'>" . htmlspecialchars($eventDetails[2]) . "</span> <span class='mx-1'>&bullet;</span> <span>" . htmlspecialchars(date('M jS \'y', strtotime($eventDetails[3]))) . "</span></div>";
-            
-                        // Display event title
-                        echo "<h1 class='mb-5'>" . htmlspecialchars($eventDetails[4]) . "</h1>";
-                        echo "<figcaption >"."<h3>". $organizer. " " . htmlspecialchars($eventDetails[1]) ."</h3>". "</figcaption>";
-                        // Display the first character of the description
-                        echo "<p><span class='firstcharacter'>" . htmlspecialchars($eventDetails[5][0]) . "</span>" . htmlspecialchars(substr($eventDetails[5], 1)) . "</p>";
 
-                        // Display event image with caption
-                        echo "<figure class='my-4'>";
-                        echo "<img src='" . htmlspecialchars($eventDetails[6]) . "' alt='Event Image' class='img-fluid'>";
-                        
-                        echo "</figure>";
-
+                        $stmt->close();
                     } else {
-                        echo "<p>Event not found.</p>";
+                        echo "<p>No event ID provided.</p>";
                     }
-                    
+                    // closing the connection
+                    $conn->close();
+
             ?>
 
             <!-- ======= Comments ======= -->

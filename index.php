@@ -49,42 +49,10 @@
         <!-- <img src="assets/img/logo.png" alt=""> -->
         <h1>What's Happening</h1>
       </a>
-<<<<<<< HEAD
-
-      <nav id="navbar" class="navbar">
-        <ul>
-          <li><a href="index.php">Home</a></li>
-          <li><a href="events.php">Events</a></li>
-          <li class="dropdown"><a href="groups.php"><span>Community Groups</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
-            <ul>
-              <li><a href="search-result.php">Search Result</a></li>
-              <li><a href="#">Drop Down 1</a></li>
-              <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
-                <ul>
-                  <li><a href="#">Deep Drop Down 1</a></li>
-                  <li><a href="#">Deep Drop Down 2</a></li>
-                  <li><a href="#">Deep Drop Down 3</a></li>
-                  <li><a href="#">Deep Drop Down 4</a></li>
-                  <li><a href="#">Deep Drop Down 5</a></li>
-                </ul>
-              </li>
-              <li><a href="#">Drop Down 2</a></li>
-              <li><a href="#">Drop Down 3</a></li>
-              <li><a href="#">Drop Down 4</a></li>
-            </ul>
-          </li>
-
-          <li><a href="about.php">About</a></li>
-          <li><a href="login.php">Login</a></li>
-        </ul>
-      </nav><!-- .navbar -->
-
-=======
       <?php include 'navbar.php'; ?>
 
       
  
->>>>>>> master
       <div class="position-relative">
         <a href="#" class="mx-2"><span class="bi-facebook"></span></a>
         <a href="#" class="mx-2"><span class="bi-twitter"></span></a>
@@ -110,57 +78,88 @@
 
   <main id="main">
 
-    <!-- ======= Hero Slider Section ======= -->
-    <section id="hero-slider" class="hero-slider">
-      <div class="container-md" data-aos="fade-in">
-        <div class="row">
-          <div class="col-12">
-            <div class="swiper sliderFeaturedPosts">
-              <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                  <a href="single-post.php" class="img-bg d-flex align-items-end" style="background-image: url('assets/img/post-slide-1.jpg');">
-                    <div class="img-bg-inner">
-                      <h2>Whats happening in your community</h2>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem neque est mollitia! Beatae minima assumenda repellat harum vero, officiis ipsam magnam obcaecati cumque maxime inventore repudiandae quidem necessitatibus rem atque.</p>
-                    </div>
-                  </a>
-                </div>
-
-                <div class="swiper-slide">
-                  <a href="single-post.php" class="img-bg d-flex align-items-end" style="background-image: url('assets/img/post-slide-2.jpg');">
-                    <div class="img-bg-inner">
-                      <h2>Latest Added Events</h2>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem neque est mollitia! Beatae minima assumenda repellat harum vero, officiis ipsam magnam obcaecati cumque maxime inventore repudiandae quidem necessitatibus rem atque.</p>
-                    </div>
-                  </a>
-                </div>
-
-                <div class="swiper-slide">
-                  <a href="single-post.php" class="img-bg d-flex align-items-end" style="background-image: url('assets/img/post-slide-3.jpg');">
-                    <div class="img-bg-inner">
-                      <h2>Happening soon</h2>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem neque est mollitia! Beatae minima assumenda repellat harum vero, officiis ipsam magnam obcaecati cumque maxime inventore repudiandae quidem necessitatibus rem atque.</p>
-                    </div>
-                  </a>
-                </div>
-
-                
-              </div>
-              <div class="custom-swiper-button-next">
-                <span class="bi-chevron-right"></span>
-              </div>
-              <div class="custom-swiper-button-prev">
-                <span class="bi-chevron-left"></span>
-              </div>
-
-              <div class="swiper-pagination"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section><!-- End Hero Slider Section -->
-
+    
     <!-- ======= Post Grid Section ======= -->
+
+    <!-- All the php code for fetchong information from serverlogin.php and php prepared statement to fetch data from event table from the database -->
+    <?php
+
+    // fetched data from serverlogin.php for databse information
+    include 'serverlogin.php';
+    // created the connection for databse
+    $conn = new mysqli($db_hostname, $db_username, $db_password, $db_database);
+
+    // Checking the connection, if not show error message
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+    // Query to get the most recently submitted event
+    // using php prepared statement
+    $stmt = $conn->prepare("SELECT EventID, EventTitle, EventDesc FROM events ORDER BY SubmitDate DESC LIMIT 1");
+    $stmt->execute();
+    $latestEvent = $stmt->get_result()->fetch_assoc();
+
+    // this query get eventhappning closest to todAYS DATE
+    $stmt = $conn->prepare("SELECT EventID, EventTitle, EventDesc FROM events WHERE EventDate > NOW() ORDER BY EventDate ASC LIMIT 1");
+    $stmt->execute();
+    $upcomingEvent = $stmt->get_result()->fetch_assoc();
+
+    // Close the statement 
+    $stmt->close();
+    ?>
+          <!-- adjust the slider according to instruction and made sure previous css ids are being properly used  -->
+            <!-- Hero Slider Section -->
+            <section id="hero-slider" class="hero-slider">
+              <div class="container-md" data-aos="fade-in">
+                <div class="row">
+                  <div class="col-12">
+                    <div class="swiper sliderFeaturedPosts">
+                      <div class="swiper-wrapper">
+
+                        <!-- Static slide for "What's Happening in your community" -->
+                        
+
+                        <!-- Dynamic slide for "Latest Added Event" -->
+                        <div class="swiper-slide">
+                          <a href="single-post.php?eventNumber=<?= htmlspecialchars($latestEvent['EventID']) ?>" class="img-bg d-flex align-items-end" style="background-image: url('assets/img/post-slide-2.jpg');">
+                            <div class="img-bg-inner">
+                            <h2>Whats happening in your community</h2>
+                              <p><b><?= htmlspecialchars($latestEvent['EventTitle']) ?></b>
+                              <?= htmlspecialchars($latestEvent['EventDesc']) ?></p>
+                            </div>
+                          </a>
+                        </div>
+
+                        <!-- Dynamic slide for "Happening Soon" -->
+                        <div class="swiper-slide">
+                          <a href="single-post.php?eventNumber=<?= htmlspecialchars($upcomingEvent['EventID']) ?>" class="img-bg d-flex align-items-end" style="background-image: url('assets/img/post-slide-3.jpg');">
+                            <div class="img-bg-inner">
+                            <h2>Latest Added Events</h2>
+                              <p><b><?= htmlspecialchars($upcomingEvent['EventTitle']) ?></b>
+                              <?= htmlspecialchars($upcomingEvent['EventDesc']) ?></p>
+                            </div>
+                          </a>
+                        </div>
+
+                    
+
+                      </div>
+                      <div class="custom-swiper-button-next">
+                        <span class="bi-chevron-right"></span>
+                      </div>
+                      <div class="custom-swiper-button-prev">
+                        <span class="bi-chevron-left"></span>
+                      </div>
+                      <div class="swiper-pagination"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          <!-- End Hero Slider Section -->
+    
+
+
     
 
   </main><!-- End #main -->
@@ -177,29 +176,6 @@
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam ab, perspiciatis beatae autem deleniti voluptate nulla a dolores, exercitationem eveniet libero laudantium recusandae officiis qui aliquid blanditiis omnis quae. Explicabo?</p>
             <p><a href="about.php" class="footer-link-more">Learn More</a></p>
           </div>
-<<<<<<< HEAD
-          <div class="col-6 col-lg-2">
-            <h3 class="footer-heading">Navigation</h3>
-            <ul class="footer-links list-unstyled">
-              <li><a href="index.php"><i class="bi bi-chevron-right"></i> Home</a></li>
-              <li><a href="events.php"><i class="bi bi-chevron-right"></i> Events</a></li>
-              <li><a href="groups.php"><i class="bi bi-chevron-right"></i> Community Groups</a></li>
-              <li><a href="about.php"><i class="bi bi-chevron-right"></i> About us</a></li>
-              <li><a href="login.php"><i class="bi bi-chevron-right"></i> Login</a></li>
-            </ul>
-          </div>
-          <div class="col-6 col-lg-2">
-            <h3 class="footer-heading">Events</h3>
-            <ul class="footer-links list-unstyled">
-              <li><a href="#"><i class="bi bi-chevron-right"></i> All Events</a></li>
-              <li><a href="#"><i class="bi bi-chevron-right"></i> Music</a></li>
-              <li><a href="#"><i class="bi bi-chevron-right"></i> Art+Culture</a></li>
-              <li><a href="#"><i class="bi bi-chevron-right"></i> Sport</a></li>
-              <li><a href="#"><i class="bi bi-chevron-right"></i> Food</a></li>
-              <li><a href="#"><i class="bi bi-chevron-right"></i> Fund Raiser</a></li>
-              
-
-=======
           <?php include 'footer.php'; ?>
           <div class="col-6 col-lg-2">
           <h3 class="footer-heading">Events</h3>
@@ -211,7 +187,6 @@
               <li><a href="events.php?type=Food"><i class="bi bi-chevron-right"></i> Food</a></li>
               <li><a href="events.php?type=Fund Raiser"><i class="bi bi-chevron-right"></i> Fund Raiser</a></li>
              
->>>>>>> master
             </ul>
           </div>
         </div>

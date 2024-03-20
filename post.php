@@ -87,40 +87,88 @@
         </div>
 
         <?php
-         // Get the last event to find the last event number
+         
+         if ($_SERVER["REQUEST_METHOD"] == "POST") {
+          // fetched datbase information
+          include 'serverlogin.php';
+          // creating database connection
+          $conn = new mysqli($db_hostname, $db_username, $db_password, $db_database);
+          if ($conn->connect_error) {
+              die("Connection failed: " . $conn->connect_error);
+          }
+          // posting data from Form
+          $groupName = $conn->real_escape_string($_POST['communityGroup']);
+          $title = $conn->real_escape_string($_POST['eventTitle']);
+          $eventDate = $conn->real_escape_string($_POST['eventDate']);
+          $eventTime = $conn->real_escape_string($_POST['eventTime']);
+          $eventType = $conn->real_escape_string($_POST['eventType']);
+          $imageName = $conn->real_escape_string($_POST['imageName']);
+          $description = $conn->real_escape_string($_POST['eventDescription']);
+      
+          $formattedEventDate = date('Y-m-d H:i:s', strtotime("$eventDate $eventTime"));
+          $currentDate = date('Y-m-d H:i:s');
+      
+          // Retrieve EventTypeID
+          $stmt = $conn->prepare("SELECT EventTypeID FROM eventtypes WHERE EventType LIKE ?");
+          $eventType = "%$eventType%";
+          $stmt->bind_param("s", $eventType);
+          $stmt->execute();
+          $eventTypeResult = $stmt->get_result();
+          if ($eventTypeResult->num_rows > 0) {
+              $eventTypeRow = $eventTypeResult->fetch_assoc();
+              $eventTypeID = $eventTypeRow['EventTypeID'];
+          } else {
+              // Handle the error appropriately if no matching event type is found
+              echo "No matching EventType found.";
+              $stmt->close();
+              $conn->close();
+              exit; // Stop script execution
+          }
+
+      
+          // Retrieve GroupID
+          $stmt = $conn->prepare("SELECT GroupID FROM groups WHERE GroupName LIKE ?");
+          $groupName = "%$groupName%";
+          $stmt->bind_param("s", $groupName);
+          $stmt->execute();
+          $groupResult = $stmt->get_result();
+          if ($groupResult->num_rows > 0) {
+              $groupRow = $groupResult->fetch_assoc();
+              $groupID = $groupRow['GroupID'];
+          } else {
+              // Handle the error appropriately if no matching group is found
+              echo "No matching Group found.";
+              $stmt->close();
+              $conn->close();
+              exit; // Stop script execution
+          }
         
-         $path = 'files/images/events/';
-        if($_SERVER["REQUEST_METHOD"] == "POST"){
-          $csvFile = "files/events.csv";
-         
-         
-          $countNo = count(file($csvFile));
-          $groupName=$_POST['communityGroup'];
-          $title = $_POST['eventTitle'];
-          $date = $_POST['eventDate'];
-          $eventType= $_POST['eventType'];
-          $imageName = $_POST['imageName'];
-          $description = $_POST['eventDescription'];
-          $EventNumber = $countNo + 1;
-          //// here i added image path with the image name
-          $fullImage = $path . $imageName .'.jpg';
-         
-          // printing all info for the csv file
-          $newEvent = "{$EventNumber},{$groupName},{$eventType},{$date},{$title},{$description},{$fullImage}";
-
-
-          // write info to csv file
-          $file = fopen($csvFile, "a"); // Make sure the directory exists and is writable
-          fwrite($file, $newEvent);
-          fclose($file);
-
+      
+          // Prepare the SQL statement to insert the new event.
+          $stmt = $conn->prepare("INSERT INTO events (EventTypeID, GroupID, EventDate, SubmitDate, EventTitle, EventImage, EventDesc) VALUES (?, ?, ?, ?, ?, ?, ?)");
+      
+          // Bind the parameters to the SQL query.
+          $stmt->bind_param("iisssss", $eventTypeID, $groupID, $formattedEventDate, $currentDate, $title, $imageName, $description);
+      
+          // Execute the statement and check for errors
+          if ($stmt->execute()) {
+              echo "New event added successfully!";
+              // Optionally redirect to the events page or display a success message
+          } else {
+              echo "Error: " . $stmt->error;
+          }
+          
+          // Close statement and connection
+          $stmt->close();
+          $conn->close();
         
-
-        }
+         }
+      
+        
         ?>
 
         <div class="form mt-5">
-        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" role="form">
+        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" role="form" class="php-email-form">
                 <div class="form-group">
                 <input type="text" name="communityGroup" class="form-control" id="community-group" placeholder="Your Community Group" required>
                 </div>
@@ -131,13 +179,16 @@
                 <input type="text" name="eventDate" class="form-control" id="event-date" placeholder="Your Event Date (Format: day/month/year)" required>
                 </div>
                 <div class="form-group">
-                <input type="text" name="eventType" class="form-control" id="event-type" placeholder="Your Event Type" required>
+                  <input type="time" name="eventTime" class="form-control" id="event-time" placeholder="Your Event Time" required>
                 </div>
                 <div class="form-group">
-                <input type="text" name="imageName" class="form-control" id="image-name" placeholder="Image Name" required>
+                  <input type="text" name="eventType" class="form-control" id="event-type" placeholder="Your Event Type" required>
                 </div>
                 <div class="form-group">
-                <textarea class="form-control" name="eventDescription" rows="5" placeholder="The Event Description" required></textarea>
+                  <input type="text" name="imageName" class="form-control" id="image-name" placeholder="Image Name" required>
+                </div>
+                <div class="form-group">
+                  <textarea class="form-control" name="eventDescription" rows="5" placeholder="The Event Description" required></textarea>
                 </div>
                 <div class="my-3">
                 <div class="loading">Loading</div>
